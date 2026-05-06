@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tradingbygold.github.io/pip-calculator-forex/sitemap.xml

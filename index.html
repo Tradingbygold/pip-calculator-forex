@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forex Pip Calculator - Calculate Pip Value (XAUUSD, BTC, EURUSD)</title>
+<meta name="description" content="Free forex pip calculator to calculate pip value for EURUSD, gold (XAUUSD), and BTC. Instantly estimate your trading profit per pip.">
+
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(180deg, #0b1e3a, #07152b);
+    color: #fff;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 32px;
+}
+
+.card {
+    background: #11284d;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #0f2342;
+    color: #fff;
+}
+
+button {
+    margin-top: 15px;
+    padding: 14px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background: #f5c542;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.result {
+    font-size: 40px;
+    color: #f5c542;
+    text-align: center;
+}
+
+.small-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat {
+    background: #0f2342;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cta a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn1 {
+    background: #f5c542;
+    color: #000;
+}
+
+.btn2 {
+    background: #1c3d6b;
+    color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<h1>Forex Pip Calculator</h1>
+<p>Calculate pip value instantly for forex, gold (XAUUSD), and crypto</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<label>Trading Pair</label>
+<select id="pair">
+<option value="forex">EURUSD</option>
+<option value="forex">GBPUSD</option>
+<option value="gold">XAUUSD (Gold)</option>
+<option value="btc">BTCUSD</option>
+</select>
+
+<label>Lot Size</label>
+<input type="number" id="lot" value="1" step="0.01">
+
+<button onclick="calculate()">Calculate Pip Value</button>
+</div>
+
+<div class="card">
+<div class="result" id="result">$0.00</div>
+<p style="text-align:center;">Value per pip</p>
+
+<div class="cta">
+<a href="https://tradingbygold.com/rebate-xm/calculator" target="_blank" class="btn1">Check XM Rebate</a>
+<a href="https://affs.click/1PcHH" target="_blank" class="btn2">Open XM Account</a>
+</div>
+</div>
+
+</div>
+
+<div class="small-box">
+<div class="stat">
+<h3 id="pip10">$0</h3>
+<p>10 Pips</p>
+</div>
+
+<div class="stat">
+<h3 id="pip50">$0</h3>
+<p>50 Pips</p>
+</div>
+
+<div class="stat">
+<h3 id="pip100">$0</h3>
+<p>100 Pips</p>
+</div>
+</div>
+
+<div class="card">
+<h2>What is a Pip?</h2>
+<p>A pip is the smallest price movement in forex trading. It determines your profit or loss depending on your lot size and trade direction.</p>
+
+<h2>How to Calculate Pip Value</h2>
+<p>Pip value depends on your trading pair and lot size. Use this calculator to instantly estimate your profit potential per pip movement.</p>
+
+<h2>Why Pip Calculation Matters</h2>
+<ul>
+<li>Better risk management</li>
+<li>Estimate trading profit</li>
+<li>Essential for scalpers & active traders</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+function calculate() {
+    let pair = document.getElementById("pair").value;
+    let lot = parseFloat(document.getElementById("lot").value);
+
+    let pipValue = 0;
+
+    if(pair === "forex") {
+        pipValue = lot * 10;
+    } else if(pair === "gold") {
+        pipValue = lot * 1;
+    } else if(pair === "btc") {
+        pipValue = lot * 1;
+    }
+
+    document.getElementById("result").innerHTML = "$" + pipValue.toFixed(2);
+    document.getElementById("pip10").innerHTML = "$" + (pipValue * 10).toFixed(2);
+    document.getElementById("pip50").innerHTML = "$" + (pipValue * 50).toFixed(2);
+    document.getElementById("pip100").innerHTML = "$" + (pipValue * 100).toFixed(2);
+}
+</script>
+
+</body>
+</html>
